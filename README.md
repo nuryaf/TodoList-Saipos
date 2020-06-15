@@ -24,3 +24,6 @@ A API será disponibilizada na porta 3333
 ng serve 
 ```
 A aplicação será disponibilizada na porta 4200
+
+## Observação
+Senha de administrador contém criptografia, logo, não é apresentada no console do navegador.
