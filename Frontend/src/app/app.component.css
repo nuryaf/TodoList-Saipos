@@ -1,0 +1,88 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{ 
+    padding: 0; 
+    margin: 0;
+}
+
+form{ 
+    max-width: 40em;
+    margin: 4em auto; 
+    position: fixed; 
+    background: #cecece; 
+    padding: 2em 3em;
+    display: none;
+}
+
+form input[type=text]::placeholder{   
+    font-family: "Raleway";   
+    color:#666; 
+}
+
+.data{    
+    margin-top: 1em;
+    display: flex;
+}
+
+form .input-group-text{    
+    background: #F97300;    
+    border-radius: 50%;    
+    width: 5em;    
+    height: 5em;    
+    padding: 1em 23px;    
+    color: #fff;    
+    position: absolute;    
+    right: 13px;    
+    top: 68px;    
+    cursor: pointer;
+}
+
+form .input-group-text i{    
+    font-size: 2em;
+}
+
+form .form-control{ 
+    height: 3em;    
+    font-family: "Raleway";
+}
+
+form .form-control:focus{ 
+    box-shadow: 0;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.column2 {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.todo {
+    display: block;
+    padding: 10px;
+    width: 500px;
+    height: 170px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: rgb(224, 224, 224);
+}
+
+.popup {
+    max-width: 40em;
+    margin:  auto; 
+    position: absolute; 
+    background: #cecece; 
+    padding: 2em 3em;
+    display: none;
+}
+
+.btn {
+    margin: 3px;
+    padding: 5px 20px;
+}

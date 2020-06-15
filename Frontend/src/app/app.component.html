@@ -1,0 +1,78 @@
+<div class="container">
+
+  <form id="add-form" (ngSubmit)="f.form.valid && postNewTask(f)" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" [(ngModel)]="todoTask.email" id="email" name="email" #email="ngModel" required
+        class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite o e-mail">
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">E-mail é obrigatório</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" [(ngModel)]="todoTask.name" id="name" name="name" #name="ngModel" required class="form-control"
+        [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
+      <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+        <div *ngIf="name.errors.required">Nome é obrigatório</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="detail">Tarefa</label>
+      <textarea type="text" [(ngModel)]="todoTask.detail" id="detail" name="detail" #detail="ngModel" required
+        class="form-control" [ngClass]="{ 'is-invalid': f.submitted && detail.invalid }" placeholder="Digite a tarefa"
+        rows="4" cols="50" maxlength="50"></textarea>
+      <div *ngIf="f.submitted && detail.invalid" class="invalid-feedback">
+        <div *ngIf="detail.errors.required">Tarefa é obrigatória</div>
+      </div>
+    </div>
+    <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
+    <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+  </form>
+  <!--<form>
+    <div class="form-group">
+      <h1 class="text-center text-primary">Todo App</h1>
+      <div>
+        <input type="e-mail" class="form-control" placeholder="E-mail" name="email">
+        <input type="text" class="form-control" placeholder="Name" name="name">
+        <textarea class="form-control" placeholder="To Do" name="todo" cols="30" rows="10"></textarea>
+        <span class="input-group-text"><i class="material-icons">add</i></span>
+      </div>
+    </div>
+  </form>-->
+  <div class="data">
+
+    <div class="column">
+      <h2>A fazer <button class="btn btn-warning btn-sm" (click)="showForm()">Incluir</button></h2>
+
+      <div class="todo" *ngFor="let todoTask of todoTasks">
+        <p>Responsável: {{todoTask.name}}</p>
+        <p>E-mail: {{todoTask.email}}</p>
+        <p>Tarefa: {{todoTask.detail}}</p>
+        <button class="button" type="button" class="btn btn-warning btn-sm" (click)="updateTaskDone(todoTask.id)">Marcar
+          como concluído</button>
+      </div>
+    </div>
+
+    <div class="column2">
+      <h2>Concluído</h2>
+      <div class="todo" *ngFor="let doneTask of doneTasks">
+        <p>Responsável: {{doneTask.name}}</p>
+        <p>E-mail: {{doneTask.email}}</p>
+        <p>Tarefa: {{doneTask.detail}}</p>
+
+        <div class="popup" [attr.id]="'popup' + doneTask.id">
+          <div>Informe a senha de administrador:</div>
+          <input [attr.id]="'pass' + doneTask.id" type="password" #password />
+          <button class="btn btn-secondary btn-add-car" (click)="closePopup('popup' + doneTask.id)">Cancelar</button>
+          <button class="btn btn-primary btn-add-car" (click)="done(doneTask.id, password.value)">Concluir</button>
+        </div>
+        <button [ngClass]="{'disabled': 2 === doneTask.returned}" class="btn btn-warning btn-sm"
+          (click)="showPopup('popup' + doneTask.id)">Marcar como pendente</button>
+      
+
+      </div>
+    </div>
+
+  </div>
+</div>
