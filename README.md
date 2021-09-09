@@ -1,4 +1,4 @@
-# TodoList
+# TodoList - Desafio técnico
 Aplicação desenvolvida com as tecnologias: 
 - [Node JS](https://nodejs.org/en/)
 - [Angular](https://angular.io/)
