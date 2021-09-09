@@ -1,5 +1,5 @@
 # TodoList
-Aplicação desenvolvida para desafio técnico. As tecnologias utilizadas são: 
+Aplicação desenvolvida utilizando as tecnologias: 
 - [Node JS](https://nodejs.org/en/)
 - [Angular](https://angular.io/)
 - [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) para a criação e testes em banco de dados Postgres.
